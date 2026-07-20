@@ -1,0 +1,26 @@
+<% content_for :title, "Artur Webber" %>
+
+<section class="w-full max-w-xl space-y-6">
+  <h1 class="text-3xl font-bold text-slate-900">Artur Webber</h1>
+  <p class="text-slate-600">
+    Portfolio bootstrap is live — Tailwind styles this page, Turbo Drive navigates without a full reload,
+    and Stimulus powers the toggle below. The conversational CV interface comes next.
+  </p>
+
+  <div class="flex gap-4">
+    <%= link_to "About (Turbo)", about_path, class: "text-slate-800 underline" %>
+  </div>
+
+  <div data-controller="toggle" class="rounded-lg border border-slate-200 p-4">
+    <button
+      type="button"
+      data-action="toggle#toggle"
+      class="rounded bg-slate-900 px-3 py-2 text-sm font-medium text-white hover:bg-slate-800"
+    >
+      Toggle demo panel
+    </button>
+    <p data-toggle-target="panel" class="mt-3 text-sm text-slate-700">
+      Stimulus is working — this panel can hide and show.
+    </p>
+  </div>
+</section>
