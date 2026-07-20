@@ -47,5 +47,6 @@ Internal Turbo/fetch used by authenticated admin pages is allowed; it is not a p
 
 ## Links
 
-- Auth for admin routes: [ADR-002](./0002-self-contained-auth-admin.md)
+- Auth for admin routes: [ADR-005](./0005-tinyauth-oidc-admin.md) (supersedes [ADR-002](./0002-self-contained-auth-admin.md))
+- Agent / streaming / budget: [ADR-008](./0008-rubyllm-streaming-public-chat.md)
 - Sitio counterpart used Wix webhooks as the only public surface; home uses public chat instead

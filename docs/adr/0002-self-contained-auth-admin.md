@@ -1,7 +1,7 @@
 # ADR-002: Self-Contained Auth for Admin
 
 - **Date**: 2026-07-20
-- **Status**: Accepted
+- **Status**: Superseded by [ADR-005](./0005-tinyauth-oidc-admin.md)
 - **Deciders**: Artur Webber
 - **Tags**: architecture, security, auth, rails
 - **Related**: [ADR-001](./0001-use-ruby-on-rails-for-home.md), [ADR-004](./0004-hotwire-tailwind-public-chat.md)
@@ -45,5 +45,6 @@ The site owner authenticates with **email/password** sessions owned by the Rails
 
 ## Links
 
+- Superseded by: [ADR-005](./0005-tinyauth-oidc-admin.md)
 - Public surface rules: [ADR-004](./0004-hotwire-tailwind-public-chat.md)
 - Sitio counterpart used admin + member; home intentionally omits member
