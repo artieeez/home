@@ -43,6 +43,30 @@ docker run --rm -p 80:80 \
   home
 ```
 
+OKE images are **linux/arm64** and live in OCIR:
+
+`vcp.ocir.io/axtvnrdemzo7/home:<tag>`
+
+| Env | URL |
+|-----|-----|
+| Staging | https://home-staging.artr.com.br |
+| Production | https://artr.com.br |
+
+## CI → OCIR → GitOps
+
+1. `.github/workflows/build-push-ocir.yaml` (this repo) — push to `main` builds/pushes and bumps **staging** in `artr-gitops`.
+2. `Promote home to production` (in `artr-gitops`) — manual `workflow_dispatch` copies the staging image tag to production.
+
+**GitHub Actions secrets** (repo settings):
+
+| Secret | Value |
+|--------|--------|
+| `OCIR_USERNAME` | `<tenancy-namespace>/<oci-username>` e.g. `axtvnrdemzo7/you@example.com` |
+| `OCIR_AUTH_TOKEN` | OCI user auth token (push to `home` repo) |
+| `GITOPS_TOKEN` | (optional) PAT with `contents:write` on `artieeez/artr-gitops` to bump staging image |
+
+Create the OCIR repository via Terraform in `oracle-cluster` (`home` resource). Cluster SealedSecrets live in `artr-gitops` under `apps/{staging,production}/home/`.
+
 ## Docs
 
 - `docs/adr/` — architecture decisions
