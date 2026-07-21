@@ -19,7 +19,7 @@ jobs:
       image: ${{ steps.meta.outputs.image }}
       sha_tag: ${{ steps.meta.outputs.sha_tag }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - uses: docker/setup-qemu-action@v4
 
@@ -72,7 +72,7 @@ jobs:
 
       - name: Checkout artr-gitops
         if: steps.gate.outputs.skip == 'false'
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           repository: artieeez/artr-gitops
           token: ${{ secrets.GITOPS_TOKEN }}
